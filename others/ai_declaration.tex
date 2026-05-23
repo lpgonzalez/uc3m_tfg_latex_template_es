@@ -1,0 +1,141 @@
+% Anexo obligatorio: Declaración de uso de IAG (fiel al modelo oficial de la UC3M).
+% El encabezado y pie de página son los de la propia plantilla del TFG.
+% La ayuda (en verde) y la guía de tipos de uso se controlan con
+% \aiShowExplanations en tfg_vars.tex: ponlo a false para la versión final
+% (production-ready), sin explicaciones ni secciones no usadas.
+\phantomsection
+\addcontentsline{toc}{chapter}{Declaración de uso de IAG}
+\markboth{Declaración de uso de IAG}{Declaración de uso de IAG}
+\chapter*{Declaración de uso de Inteligencia Artificial Generativa (IAG) en el Trabajo de Fin de Grado (TFG)}
+
+\noindent\textbf{He usado IAG en mi TFG}
+
+\aihint{Marca lo que corresponda:}
+
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{3.5cm}|}
+\hline
+\aiYesCell{\aiUsed}{SÍ} & \aiNoCell{\aiUsed}{NO} \\
+\hline
+\end{tabular}
+\end{center}
+
+\ifthenelse{\equal{\aiUsed}{true}}{% ---- Se ha usado IAG: completar las 3 partes ----
+
+\aihint{Si has marcado SÍ, completa las siguientes 3 partes de este documento.}
+
+% ===================== PARTE 1 =====================
+\section*{Parte 1: declaración sobre comportamiento legal, ético y responsable}
+
+Ten presente que el uso de IAG conlleva unos riesgos y puede generar una serie de consecuencias académicas graves: la evaluación de tu TFG puede verse comprometida si el uso de la IAG comporta la utilización de datos de carácter confidencial, materiales protegidos por derechos de autoría, o datos de carácter personal, y se hace sin cumplir las condiciones exigidas en cada caso (autorización de los interesados, autorización de los titulares, seguimiento de las instrucciones de la Universidad).
+
+\medskip
+\noindent\textbf{Pregunta 1.} En mi interacción con herramientas de IAG he facilitado \textbf{datos de carácter confidencial} contando siempre con la debida autorización de los interesados. La confidencialidad abarca toda información que una persona u organización desea proteger por razones legales, comerciales, de privacidad o estratégicas (como patentes o secretos comerciales).
+
+\noindent\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\aiYesCell{\aiConfidentialData}{SÍ, he usado estos datos con la autorización de los interesados}
+&
+\aiNoCell{\aiConfidentialData}{NO, no he usado datos de carácter confidencial}
+\\ \hline
+\end{tabularx}
+
+\medskip
+\noindent\textbf{Pregunta 2.} En mi interacción con herramientas de IAG he facilitado \textbf{materiales protegidos por derechos de autoría} contando siempre con la autorización de los respectivos titulares.
+
+\noindent\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\aiYesCell{\aiCopyrightedMaterial}{SÍ, he usado estos materiales con autorización de los titulares de derechos de autor; o bien sin ella porque se ajustan a una de las excepciones o límites que permite la ley:\newline \textbullet~obra en dominio público\newline \textbullet~obra licenciada (licencias Creative Commons)\newline \textbullet~uso de fragmentos con fines de investigación (derecho de cita)}
+&
+\aiNoCell{\aiCopyrightedMaterial}{NO, no he usado materiales protegidos por derechos de autoría}
+\\ \hline
+\end{tabularx}
+
+\medskip
+\noindent\textbf{Pregunta 3.} En mi interacción con herramientas de IAG he facilitado \textbf{datos de carácter personal} con la debida autorización de los interesados.
+
+\noindent\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\aiYesCell{\aiPersonalData}{SÍ, he usado estos datos con autorización de los interesados y conforme a las instrucciones contenidas en la \href{https://docs.google.com/document/d/1YghVxFwo8a1VqdfnvJiZzlmAkfYepbDmD4g3hTOW9ro/edit}{guía aprobada por la Universidad}}
+&
+\aiNoCell{\aiPersonalData}{NO, no he usado datos de carácter personal}
+\\ \hline
+\end{tabularx}
+
+\medskip
+\noindent\textbf{Pregunta 4.} Mi utilización de la herramienta de IAG ha \textbf{respetado sus términos de uso}, así como los principios éticos esenciales, no orientándola de manera maliciosa a obtener un resultado inapropiado para el trabajo presentado, es decir, que produzca una impresión o conocimiento contrario a la realidad de los resultados obtenidos, que suplante mi propio trabajo o que pueda resultar en un perjuicio para las personas.
+
+\noindent\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\aiYesCell{\aiTermsRespected}{SÍ}
+&
+\aiNoCell{\aiTermsRespected}{NO}
+\\ \hline
+\end{tabularx}
+
+% ===================== PARTE 2 =====================
+\section*{Parte 2: declaración de uso técnico}
+
+% --- Guía y ejemplos: solo en la versión de trabajo (\aiShowExplanations=true) ---
+\ifthenelse{\equal{\aiShowExplanations}{true}}{%
+
+\aihint{Utiliza el siguiente modelo de declaración tantas veces como sea necesario, a fin de reflejar todos los tipos de interacción que has tenido con herramientas de IAG. Incluye un ejemplo por cada tipo de uso realizado donde se indique [Añade un ejemplo].}
+
+\medskip
+\noindent\textbf{Declaro haber hecho uso del sistema de IAG} \aiFill{\aiSystemName} \aihint{(nombre del sistema/herramienta de IAG y versión: ChatGPT, Gemini, Copilot\dots)} \textbf{para:}
+
+\medskip
+\noindent\textbf{Documentación y redacción:}
+\begin{itemize}
+  \item Soporte a la reflexión en relación con el desarrollo del trabajo: proceso iterativo de análisis de alternativas y enfoques utilizando la IAG.
+  \aibox{\aihint{[Añade un ejemplo] Por ejemplo: he solicitado una lista de alternativas para abordar el problema planteado al inicio del trabajo.}}
+  \item Revisión o reescritura de párrafos redactados previamente.
+  \aibox{\aihint{[Añade un ejemplo] Por ejemplo: he solicitado la reescritura de párrafos para acortar las conclusiones manteniendo las mismas ideas ya redactadas.}}
+  \item Búsqueda de información o respuesta a preguntas concretas.
+  \aibox{\aihint{[Añade un ejemplo] Por ejemplo: las preguntas se orientaban a encontrar definiciones, explicaciones de procesos, ejemplos de uso, listas de riesgos\dots}}
+  \item Búsqueda de bibliografía.
+  \item Resumen de bibliografía consultada.
+  \item Traducción de textos consultados.
+\end{itemize}
+
+\noindent\textbf{Desarrollar contenido específico:}
+
+\aihint{Se ha hecho uso de IAG como herramienta de soporte para el desarrollo del contenido específico del TFG, incluyendo:}
+\begin{itemize}
+  \item Asistencia en el desarrollo de líneas de código (programación).
+  \aibox{\aihint{[Añade un ejemplo del flujo habitual de uso para programar] Por ejemplo: he pedido explicaciones sobre un código en lenguaje Python.}}
+  \item Generación de esquemas, imágenes, audios o vídeos.
+  \aibox{\aihint{[Indica su uso aquí y mediante una nota al pie de la figura/elemento generado por IAG] Por ejemplo: Fuente: elaboración propia con ayuda de Midjourney.}}
+  \item Procesos de optimización.
+  \aibox{\aihint{[Añade un ejemplo del flujo habitual de uso para optimizar] Por ejemplo: he solicitado ayuda para corregir y explicar errores de un código que no funcionaba correctamente.}}
+  \item Tratamiento de datos: recogida, análisis, cruce de datos\dots
+  \aibox{\aihint{[Añade un ejemplo] Por ejemplo: una vez recogidos los datos, he pedido una guía para su normalización antes del análisis.}}
+  \item Inspiración de ideas en el proceso creativo.
+  \aibox{\aihint{[Añade un ejemplo] Por ejemplo: una vez claro el objetivo del trabajo, he solicitado ideas para abordarlo desde un enfoque multidisciplinar.}}
+  \item Otros usos vinculados a la generación de puntos concretos del desarrollo específico del trabajo.
+\end{itemize}
+
+\aihint{Si lo crees necesario, añade en cada caso \textbf{empleando el prompt \dots} (escribe la petición realizada a la IAG) y \textbf{teniendo como interacción \dots} (describe qué interacción realizaste tras la respuesta del prompt).}
+
+\aihint{\textbf{Ejemplo:} Declaro haber hecho uso del sistema de IAG \textbf{ChatGPT 3.5} para \textbf{buscar información} empleando \textbf{el prompt:} ``Dime un ejemplo concreto que ilustre la aplicación de la propuesta urbanística de la Ciudad de los 15 minutos en España'' teniendo como interacción \textbf{la proposición del ejemplo concreto del distrito de Chamartín que se ha reflejado en la memoria}.}
+
+}{}% fin de la guía
+
+% --- Tu declaración (siempre visible). Copia el bloque para declarar más usos. ---
+\medskip
+\noindent\textbf{Mi declaración:}
+\aibox[2.5cm]{\textbf{Declaro} haber hecho uso del sistema de IAG \aiFill{\aiSystemName} para \aiFill{\aiDeclPurpose} empleando \textbf{el prompt:} ``\aiFill{\aiDeclPrompt}'' teniendo como interacción \aiFill{\aiDeclInteraction}.}
+
+% ===================== PARTE 3 =====================
+\section*{Parte 3: reflexión sobre utilidad}
+
+\aihint{Aporta una valoración personal (formato libre) sobre las fortalezas y debilidades que has identificado en el uso de herramientas de IAG en el desarrollo de tu trabajo. Menciona si te ha servido en el proceso de aprendizaje, en el desarrollo o en la extracción de conclusiones de tu trabajo.}
+
+\aibox[5cm]{\aiReflection}
+
+}{% ---- No se ha usado IAG ----
+
+\medskip
+\noindent No he hecho uso de herramientas de IAG en mi TFG, por lo que no procede completar las partes 1, 2 y 3 de esta declaración.
+
+}

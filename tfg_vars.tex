@@ -1,15 +1,110 @@
-\newcommand\Bachelor{Grado en Ingeniería Informática}
-\newcommand\Year{2021-2022}
+% =====================================================================
+%  VARIABLES EDITABLES POR EL USUARIO
+%  ---------------------------------------------------------------------
+%  Rellena los valores siguientes con los datos de tu trabajo.
+%  Edita solo el texto entre llaves { }; NO cambies el nombre de los
+%  comandos, ya que los usan la portada y los metadatos del PDF.
+% =====================================================================
 
-\newcommand\Title{MI TÍTULO}
+% --- Información académica --------------------------------------------
+% Nombre de tu grado / titulación.
+\newcommand{\degree}{Grado en Ingeniería Informática}
+% Curso académico (p. ej. 2024-2025).
+\newcommand{\academicYear}{2024-2025}
+% Tipo de trabajo; aparece en la portada y en los metadatos del PDF.
+\newcommand{\thesisType}{Trabajo de Fin de Grado}
 
-\newcommand\Author{AUTOR}
+% --- Información del trabajo ------------------------------------------
+% Título del trabajo.
+\newcommand{\thesisTitle}{MI TÍTULO}
+% Nombre completo del autor o autora.
+\newcommand{\thesisAuthor}{AUTOR}
+% Nombre completo del tutor o tutora.
+\newcommand{\thesisAdvisor}{TUTOR}
+% Lugar y fecha de la defensa (p. ej. Leganés, junio de 2025).
+\newcommand{\placeAndDate}{LUGAR, MES AÑO}
 
-\newcommand\SupervAdv{TUTOR}
-\newcommand\PlaceDate{LUGAR, (DÍA) MES AÑO}
+% --- Institución -----------------------------------------------------
+% Nombre de la universidad (se usa en los metadatos del PDF).
+\newcommand{\university}{Universidad Carlos III de Madrid}
 
-% Tipo de licencia a aplicar en el trabajo (valores: cc/reserved)
-\newcommand\licensetype{cc}
+% --- Palabras clave --------------------------------------------------
+% Aparecen en el Abstract / Resumen y se incrustan en los metadatos del
+% PDF. Separa los términos con punto y coma.
+\newcommand{\keywordsEn}{Keyword 1; Keyword 2; Keyword 3}
+\newcommand{\keywordsEs}{Palabra clave 1; Palabra clave 2; Palabra clave 3}
 
-% Formato para la bibliografía (valores: apa/ieee)
-\newcommand\bibtype{ieee}
+% --- Configuración ---------------------------------------------------
+% Licencia aplicada al trabajo. Valores admitidos: cc / reserved
+\newcommand{\licenseType}{cc}
+% Estilo de la bibliografía. Valores admitidos: apa / ieee
+\newcommand{\bibStyle}{ieee}
+% Mostrar el capítulo de demostración (chapters/00_examples) con ejemplos de la
+% plantilla. Ponlo a false en la versión final (es solo contenido de ejemplo):
+% así se oculta sin tener que comentar nada en tfg_main.tex.
+\newcommand{\showDemoChapter}{true}
+% (El interruptor PDF/A \pdfaOutput está al principio de tfg_main.tex, porque
+%  \DocumentMetadata debe ejecutarse antes que todo lo demás.)
+% (Los metadatos de la plantilla "Template.*" están en tfg_template_info.tex; los
+%  mantiene quien actualiza la plantilla, no hace falta tocarlos para tu TFG.)
+
+
+% =====================================================================
+%  DECLARACIÓN DE USO DE IAG (anexo obligatorio)
+%  ---------------------------------------------------------------------
+%  La compone others/ai_declaration.tex. Los valores true/false
+%  seleccionan y resaltan la opción correspondiente del formulario.
+% =====================================================================
+
+% Mostrar la ayuda, los ejemplos y la guía de tipos de uso (true) para una
+% versión de trabajo, u ocultar todo lo no esencial (ayudas, comentarios,
+% secciones no usadas) para una versión final lista para entregar (false).
+% Ponlo a false antes de entregar.
+\newcommand{\aiShowExplanations}{true}
+
+% ¿Has usado IAG en tu TFG? (true/false)
+% Si es false, se omiten las partes 1-3 y se marca "NO".
+\newcommand{\aiUsed}{true}
+
+% --- Parte 1: comportamiento legal, ético y responsable --------------
+% Para cada pregunta: true = opción SÍ, false = opción NO.
+\newcommand{\aiConfidentialData}{false}    % ¿datos de carácter confidencial?
+\newcommand{\aiCopyrightedMaterial}{false} % ¿materiales con derechos de autoría?
+\newcommand{\aiPersonalData}{false}        % ¿datos de carácter personal?
+\newcommand{\aiTermsRespected}{true}       % ¿respetados términos de uso y ética?
+
+% --- Parte 2: uso técnico --------------------------------------------
+% Nombre(s) y versión(es) del sistema/herramienta de IAG usado.
+\newcommand{\aiSystemName}{ChatGPT 4o}
+% Una declaración de ejemplo (copia el bloque en others/ai_declaration.tex
+% para declarar más usos).
+\newcommand{\aiDeclPurpose}{buscar información}
+\newcommand{\aiDeclPrompt}{Escribe aquí el prompt que utilizaste}
+\newcommand{\aiDeclInteraction}{describe qué hiciste con la respuesta de la IA}
+
+% --- Parte 3: reflexión sobre utilidad -------------------------------
+\newcommand{\aiReflection}{Escribe aquí tu valoración personal (formato libre): las fortalezas y debilidades que has identificado al usar herramientas de IAG, y si te han servido en el aprendizaje, el desarrollo o las conclusiones.}
+
+
+% =====================================================================
+%  COLORES (avanzado)
+%  ---------------------------------------------------------------------
+%  Valores de color usados en toda la plantilla. La mayoría no necesitará
+%  cambiarlos. Mantén el azul corporativo de la UC3M salvo que tu centro
+%  permita otra cosa. Usa "R,G,B" (0-255) para RGB y hex de 6 dígitos para HTML.
+%  Para AÑADIR un color nuevo tocas DOS ficheros: define aquí su valor y añade
+%  el correspondiente \definecolor{<nombre>}{<modelo>}{\<tuvalor>} en tfg_uc3m.sty.
+% =====================================================================
+\newcommand{\colorBrand}{0,0,102}       % azul corporativo UC3M (portada, títulos) [RGB]
+\newcommand{\colorHighlight}{FFFF00}    % resaltado de texto [HTML]
+\newcommand{\colorLink}{0000EE}         % hiperenlaces, solo en modo PDF/A [HTML]
+% Anexo de declaración de IA
+\newcommand{\colorAiSelected}{FFE066}   % opción seleccionada [HTML]
+\newcommand{\colorAiFill}{D7E9FF}       % valores que rellenas [HTML]
+\newcommand{\colorAiHint}{1A7F5A}       % texto de ayuda [HTML]
+% Listados de código. Los grises van de 0 = negro a 1 = blanco; el resto, HTML.
+\newcommand{\colorCodeBg}{0.97}         % fondo (gris)
+\newcommand{\colorCodeComment}{0.45}    % comentarios (gris)
+\newcommand{\colorCodeNumbers}{0.55}    % números de línea (gris)
+\newcommand{\colorCodeKeyword}{0033CC}  % palabras clave [HTML]
+\newcommand{\colorCodeString}{008000}   % cadenas [HTML]

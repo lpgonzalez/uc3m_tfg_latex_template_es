@@ -1,24 +1,21 @@
 \chapter{Elementos básicos}
-\label{chap:básicos} % Etiqueta para enlazar al capítulo desde el texto
+\label{ch:basics} % Etiqueta para enlazar a este capítulo desde el texto
 
-% Definición de colores personalizados
-\definecolor{azulUC3M}{RGB}{24, 30, 146}
-\definecolor{amarilloFosforito}{HTML}{FFFF00}
+% Los colores como azulUC3M y highlightYellow se definen una sola vez en
+% tfg_uc3m.sty, así que están disponibles en todo el documento.
 
 
 \section{Texto}
 
 \subsection{Texto simple}
 
-Mi primer documento en \LaTeX. Ejemplo simple
-sin paquetes adicionales.
+Mi primer documento en \LaTeX. Ejemplo simple sin paquetes adicionales.
 
 % -------------------------
 
 \subsubsection{Formatos para texto simple}
 
-Lo más \textbf{importante}
-de este \underline{documento} 
+Lo más \textbf{importante} de este \underline{documento}
 no es la \textit{cursiva}.
 También podemos \textbf{\textit{encadenar formatos}}.
 
@@ -26,13 +23,15 @@ También podemos \textbf{\textit{encadenar formatos}}.
 
 \subsection{Colores en el texto}
 
-Hola, soy un \textcolor{red}{texto en rojo} y yo un \textcolor{blue}{texto en azul} y en \textcolor{green}{verde}.
+Hola, soy un \textcolor{red}{texto en rojo} y yo un \textcolor{blue}{texto en azul}
+y en \textcolor{green}{verde}.
 
 % -------------------------
 
 \section{Texto con color personalizado y subrayado de color}
 
-Ahora podemos poner \textcolor{azulUC3M}{UC3M} en color corporativo y \colorbox{amarilloFosforito}{subrayar texto} en amarillo ``fosforito’’.
+Ahora podemos poner \textcolor{azulUC3M}{UC3M} en el color corporativo y
+\colorbox{highlightYellow}{subrayar texto} en amarillo ``fosforito''.
 
 % -------------------------
 
@@ -48,20 +47,26 @@ Ahora podemos poner \textcolor{azulUC3M}{UC3M} en color corporativo y \colorbox{
 Texto
 % Salto de línea
 \newline
-Otro texto en nueva línea
+Otro texto en una nueva línea.
 
 % -------------------------
 
 \section{Espaciado personalizado entre líneas de texto}
 
-Hola, soy un texto
+Hola, soy un texto.
 
-% Espaciado personalizado
+% Espaciado vertical personalizado
 \vspace{1cm}
 Y yo soy otro texto con una separación de 1 cm.
 
 \vspace{50pt}
 Y yo soy otro texto más alejado.
+
+% -------------------------
+
+\section{Notas al pie}
+
+Las notas al pie se crean con \verb|\footnote{...}|\footnote{Esto es una nota al pie; su numeración es continua en todo el documento (se configura en tfg\_uc3m.sty). Útil para aclaraciones o referencias accesorias.}.
 
 
 
@@ -70,8 +75,8 @@ Y yo soy otro texto más alejado.
 
 Las listas son sencillas. Para crearlas:
 \begin{itemize}
-  \item Las entradas de la lista comienzan con el comando \verb|\item| .
-  \item Este tipo de lista tiene cada entrada empezando con un ``bullet''.
+  \item Las entradas de la lista comienzan con el comando \verb|\item|.
+  \item En este tipo de lista cada entrada empieza con un ``bullet''.
   \item La longitud de cada entrada es arbitraria.
   \item Y el número de elementos también lo es.
 \end{itemize}
@@ -83,8 +88,8 @@ Las listas son sencillas. Para crearlas:
 Las listas enumeradas también son sencillas:
 \begin{enumerate}
   \item Los elementos se enumeran automáticamente.
-  \item Los números  se crean automáticamente en el entorno \texttt{enumerate}.
-  \item Otra entrada
+  \item Los números se crean automáticamente en el entorno \texttt{enumerate}.
+  \item Otra entrada.
 \end{enumerate}
 
 % -------------------------
@@ -127,14 +132,15 @@ Otro ejemplo de sublistas:
 
 \section{Listas personalizadas}
 
-Tanto las listas con puntos como las enumeradas permiten cambiar el elemento de inicio con \verb|\item[elemento]|
+Tanto las listas con puntos como las enumeradas permiten cambiar el elemento
+inicial con \verb|\item[elemento]|:
 \begin{enumerate}
-  \item Primer punto
-  \item Segundo punto
-  \item[!] Tercer punto, comenzando con exclamación
-  \item[$\blacksquare$] Ahora empezando con un cuadrado negro
-  \item[NOTA] Esta entrada no tiene ``bullet‘’
-  \item[] Entrada en blanco?
+  \item Primer punto.
+  \item Segundo punto.
+  \item[!] Tercer punto, comenzando con una exclamación.
+  \item[$\blacksquare$] Ahora empezando con un cuadrado negro.
+  \item[NOTA] Esta entrada no tiene ``bullet''.
+  \item[] ¿Entrada en blanco?
 \end{enumerate}
 
 
@@ -147,16 +153,16 @@ Tanto las listas con puntos como las enumeradas permiten cambiar el elemento de 
 
 \section{Imágenes}
 
-\subsection{Raster}
+\subsection{Ráster}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[height=7cm]{images/examples/gul_logo_raster.png}
     \caption{Logo del GUL en formato PNG}
-    \label{fig:logo1}
+    \label{fig:logo-raster}
 \end{figure}
 
-La figura \ref{fig:logo1} se encuentra en la página \pageref{fig:logo1}.
+La figura \ref{fig:logo-raster} se encuentra en la página \pageref{fig:logo-raster}.
 
 \newpage
 
@@ -168,46 +174,198 @@ La figura \ref{fig:logo1} se encuentra en la página \pageref{fig:logo1}.
      \includesvg[width=\textwidth]{images/examples/gul_logo_vector.svg}
      \centering
      \caption{Logo del GUL en formato vectorial (svg)}
-     \label{fig:logo2}
+     \label{fig:logo-vector}
 \end{figure}
 
+% -------------------------
+
+\subsection{Subfiguras}
+
+% El paquete subcaption (cargado en tfg_uc3m.sty) permite colocar varias
+% figuras, cada una con su propio rótulo, dentro de una misma figura.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/examples/gul_logo_raster.png}
+    \caption{Primera subfigura}
+    \label{fig:sub-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/examples/gul_logo_raster.png}
+    \caption{Segunda subfigura}
+    \label{fig:sub-b}
+  \end{subfigure}
+  \caption{Figura compuesta por dos subfiguras}
+  \label{fig:subfigures}
+\end{figure}
+
+Puedes referenciar la figura completa (\ref{fig:subfigures}) o una subfigura
+concreta (\ref{fig:sub-a}).
 
 
-\section{Tablas y enlaces externos (links)}
+
+\section{Tablas y enlaces externos}
 
 % ------------------------------------------------------
 % Recurso recomendado: https://www.tablesgenerator.com/
 % ------------------------------------------------------
 Recurso recomendado: \href{https://www.tablesgenerator.com/}{Tables generator}.
 
-\begin{table}[ht]
-  \begin{tabular}{ |c|c|c| } 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ |c|c|c| }
     \hline
-    Columna A & Columna B & Columna C\\ 
-    1 & 3 & 5 \\ 
-    2 & 4 & 6 \\ 
+    Columna A & Columna B & Columna C \\
+    1 & 3 & 5 \\
+    2 & 4 & 6 \\
     \hline
   \end{tabular}
-  \centering
   \caption{Tabla de ejemplo}
-  \label{tab:tabla1}
+  \label{tab:example}
 \end{table}
 
 \vspace{1cm}
 
-\begin{table}[ht]
-\begin{tabular}{ccccc}
-\cline{1-4}
-\multicolumn{2}{|c|}{emosido}                       & \multicolumn{1}{c|}{}      & \multicolumn{1}{c|}{}     &                       \\ \cline{1-4}
-\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{\multirow{2}{*}{\textbf{engañado}}} & \multicolumn{1}{c|}{}     &                       \\ \cline{1-1} \cline{4-4}
-\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{}                                   & \multicolumn{1}{c|}{}     &                       \\ \cline{1-4}
-\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{}      & \multicolumn{1}{c|}{}      & \multicolumn{1}{c|}{hola} &                       \\ \cline{1-4}
-                       &                            &                            &                           & \textit{Hello there!}
-\end{tabular}
-\centering
-\caption{Otra tabla de ejemplo}
-\label{tab:tablaEmosido}
+% Celdas combinadas con \multicolumn y \multirow.
+% También hay una marca de verificación con \tfgcheckmark, p. ej. \tfgcheckmark
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{Columnas combinadas} & Simple \\ \hline
+    \multirow{2}{*}{Filas combinadas} & A & B \\ \cline{2-3}
+                                      & C & D \\ \hline
+  \end{tabular}
+  \caption{Ejemplo de celdas combinadas}
+  \label{tab:example-merged}
 \end{table}
+
+\subsection{Ajuste de línea con tabularx}
+
+% El paquete tabularx (cargado en tfg_uc3m.sty) fija el ancho total de la tabla
+% (aquí \textwidth) y reparte el espacio entre las columnas de tipo X, cuyo
+% contenido se ajusta de línea automáticamente (word-wrap). Ideal para texto largo.
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|l|X|}
+    \hline
+    \textbf{ID} & \textbf{Requisito} & \textbf{Descripción} \\ \hline
+    RF-01 & Registro & El sistema permitirá registrar usuarios mediante correo y contraseña, validando el formato y la unicidad del correo electrónico. \\ \hline
+    RF-02 & Autenticación & El sistema permitirá iniciar sesión y mantendrá la sesión activa de forma segura durante un tiempo configurable. \\ \hline
+  \end{tabularx}
+  \caption{Tabla con \texttt{tabularx}: ocupa el ancho del texto y las celdas ajustan la línea}
+  \label{tab:tabularx}
+\end{table}
+
+\subsection{Reescalado para que quepa (\texttt{\textbackslash resizebox})}
+
+% \resizebox (del paquete graphicx) escala TODA la tabla de forma uniforme hasta
+% el ancho indicado (aquí \textwidth). Útil para tablas anchas de muchas columnas:
+% la tipografía se ve más pequeña pero homogénea, y la tabla cabe en los márgenes.
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      Métrica  & Ene & Feb & Mar & Abr & May & Jun & Jul & Ago & Sep & Oct & Nov & Dic \\ \hline
+      Ingresos & 100 & 120 & 130 & 110 & 140 & 150 & 160 & 155 & 145 & 165 & 170 & 180 \\
+      Gastos   &  80 &  90 &  95 &  85 & 100 & 105 & 110 & 108 & 102 & 112 & 115 & 120 \\
+      Balance  &  20 &  30 &  35 &  25 &  40 &  45 &  50 &  47 &  43 &  53 &  55 &  60 \\ \hline
+    \end{tabular}}
+  \caption{Tabla reescalada con \texttt{\textbackslash resizebox} para ajustarse al ancho del texto}
+  \label{tab:resizebox}
+\end{table}
+
+\subsection{Tabla apaisada (contenido girado)}
+
+% Para una tabla ancha que prefieras NO reescalar, puedes girar 90° su contenido
+% con \rotatebox (del paquete graphicx) dentro de un flotante [H]: así aparece
+% justo aquí, a continuación de las demás tablas, sin "flotar" a otra página.
+% El rótulo se mantiene horizontal. La marca \tfgcheckmark (definida en
+% tfg_uc3m.sty) es útil en comparativas. Si lo que quieres es girar la PÁGINA
+% entera, mira la sección siguiente.
+\begin{table}[H]
+  \centering
+  \rotatebox{90}{%
+    \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      Criterio    & Opción A & Opción B & Opción C & Opción D & Opción E \\ \hline
+      Coste       & Bajo  & Medio & Alto  & Medio & Bajo  \\
+      Rendimiento & Medio & Alto  & Alto  & Bajo  & Alto  \\
+      Soporte     & \tfgcheckmark & \tfgcheckmark & --- & \tfgcheckmark & --- \\ \hline
+    \end{tabular}}
+  \caption{Tabla con el contenido girado 90° en su sitio (\texttt{\textbackslash rotatebox})}
+  \label{tab:sideways}
+\end{table}
+
+\section{Página apaisada}
+
+% Página realmente apaisada (A4 horizontal) con el entorno \texttt{tfglandscape},
+% definido en tfg_uc3m.sty: vale para tablas, figuras o texto muy anchos y
+% funciona también en PDF/A. Equivale al "salto de sección + orientación
+% horizontal" de Word; el resto del documento permanece en vertical.
+Esta sección muestra una página en orientación apaisada (la siguiente), útil
+para contenidos muy anchos. El resto del documento permanece en vertical.
+
+\begin{tfglandscape}
+\lipsum[1]
+\end{tfglandscape}
+
+
+
+\section{Código fuente}
+
+% Solo tienes que indicar el lenguaje en cada bloque; el esquema de color se
+% aplica automáticamente. listings conoce muchos lenguajes (Python, C, C++,
+% Java, HTML, SQL, bash...); JavaScript viene predefinido en tfg_uc3m.sty.
+\begin{lstlisting}[language=Python,caption={Una función sencilla en Python},label={lst:example}]
+def saludar(nombre):
+    """Devuelve un mensaje de saludo."""
+    return f"Hola, {nombre}!"
+
+print(saludar("UC3M"))
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Una función sencilla en C++}]
+#include <iostream>
+
+// Saluda a un usuario
+int main() {
+    std::cout << "Hola, UC3M!" << std::endl;
+    return 0;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=HTML,caption={Un fragmento de HTML}]
+<!-- Un saludo -->
+<p class="saludo">Hola, <strong>UC3M</strong>!</p>
+\end{lstlisting}
+
+El listado \ref{lst:example} muestra un fragmento en Python; el mismo esquema
+resalta cualquier lenguaje que indiques con \texttt{language=...} (aquí también C++ y HTML).
+
+
+
+\section{Ecuaciones}
+
+% El paquete amsmath se carga en tfg_uc3m.sty.
+\begin{equation}
+    \label{eq:euler}
+    e^{i\pi} + 1 = 0
+\end{equation}
+
+La ecuación \ref{eq:euler} es la identidad de Euler. También se pueden escribir
+fórmulas en línea, por ejemplo $a^2 + b^2 = c^2$.
+
+% Varias ecuaciones alineadas por el signo "=" con el entorno align (amsmath).
+% Usa align* (con asterisco) si no quieres numerarlas.
+\begin{align}
+  (a+b)^2 &= a^2 + 2ab + b^2 \\
+  (a-b)^2 &= a^2 - 2ab + b^2
+\end{align}
 
 
 
@@ -217,22 +375,35 @@ Recurso recomendado: \href{https://www.tablesgenerator.com/}{Tables generator}.
 
 \subsection{Emojis con el paquete ``emoji''}
 
-Emojis con colores gracias al paquete \texttt{emoji} y LuaLaTeX:
+Emojis a color gracias al paquete \texttt{emoji} y a LuaLaTeX:
 \emoji{leaves}
 \emoji{rose}
 
-Otro ejemplo, en blanco y negro, usando el código Unicode para carita feliz (U+1F600): {\fontspec{Symbola}\symbol{"1F600}}
-
 % -------------------------
 
-\subsection{Emojis con el tipografía específica (NotoColorEmoji.ttf) y códigos de caracter Unicode}
+\subsection{Emojis con una tipografía específica y códigos Unicode}
 
-\newfontfamily\emojifont[Renderer=Harfbuzz]{NotoColorEmoji.ttf}
-
-Emojis utilizando una tipografía específica y código de caracter Unicode (U+1F600):
-% Utilizar \emojifont en un grupo para hacer que su efecto sea local
-{\emojifont \Uchar"1F600 \char"1F600}
-% http://www.unicode.org/emoji/charts/full-emoji-list.html
+% Además del cómodo \emoji{...}, puedes componer cualquier carácter por su punto
+% de código Unicode eligiendo tú la fuente. Es útil para símbolos que el paquete
+% emoji no cubre, o cuando quieres un estilo concreto.
+%
+% Los ejemplos van COMENTADOS porque dependen de fuentes que pueden no estar
+% instaladas (Symbola, Noto Color Emoji); descoméntalos solo si dispones de
+% ellas. La plantilla ya ofrece emojis a color con OpenMoji (subsección
+% anterior), así que esto es material de referencia.
+%
+% (1) Carita sonriente monocroma con Symbola, indicando su punto Unicode U+1F600.
+%     \symbol{"..."} compone el carácter cuyo código hexadecimal se indica.
+% {\fontspec{Symbola}\symbol{"1F600}}
+%
+% (2) Emoji a color cargando un fichero de fuente concreto y usando \char con el
+%     código hexadecimal. Renderer=Harfbuzz es necesario para fuentes de color.
+%     Usamos \newfontface con un nombre propio (\miemojifont) para no pisar la
+%     fuente interna del paquete emoji.
+% \newfontface\miemojifont[Renderer=Harfbuzz]{NotoColorEmoji.ttf}
+% {\miemojifont \char"1F600}
+%
+% Lista completa de puntos de código: https://www.unicode.org/emoji/charts/full-emoji-list.html
 
 
 
@@ -244,4 +415,6 @@ El \gls{GULa} (o \gls{GULg}) forma parte de la \gls{UC3Ma} (\gls{UC3Mg}).
 
 \section{Bibliografía y citas}
 
-Cita a una referencia \cite{prieto2014applications}, y cita con dos referencias \cite{prieto2014applications, gonzalez2020simultaneous}.
+Una cita simple \cite{prieto2014applications} y una cita múltiple
+\cite{knuth1984texbook, uc3m_earchivo}. Así aparecen en la bibliografía las
+tres referencias de ejemplo: un artículo, un libro y un recurso en línea.

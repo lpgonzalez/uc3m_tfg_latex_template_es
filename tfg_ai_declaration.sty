@@ -1,0 +1,59 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tfg_ai_declaration}[2026/05/22 v2.0.0 Declaración de uso de IAG UC3M]
+
+% =====================================================================
+%  DECLARACIÓN DE USO DE INTELIGENCIA ARTIFICIAL GENERATIVA (IAG)
+%  ---------------------------------------------------------------------
+%  Estilo y macros auxiliares para el anexo obligatorio de declaración de
+%  uso de IAG. El texto del anexo está en others/ai_declaration.tex y se
+%  rellena con las variables definidas en tfg_vars.tex. Los valores
+%  true/false seleccionan y resaltan la opción correspondiente.
+% =====================================================================
+
+\RequirePackage{tabularx}     % tablas a ancho completo con celdas multilínea
+\RequirePackage{colortbl}     % \cellcolor para resaltar celdas
+\RequirePackage{amssymb}      % casillas \boxtimes / \square
+\RequirePackage{ifthen}       % selectores \ifthenelse
+\RequirePackage{luacolor}     % backend de color para lua-ul
+\RequirePackage{lua-ul}       % resaltado robusto en LuaLaTeX
+
+% Colores de resaltado (los valores están en la sección COLORES de tfg_vars.tex)
+\definecolor{aiSelectedBg}{HTML}{\colorAiSelected}
+\definecolor{aiFillBg}{HTML}{\colorAiFill}
+\definecolor{aiHint}{HTML}{\colorAiHint}
+
+% Resalta un valor escrito por el alumno (lo que se rellena).
+\newcommand{\aiFill}[1]{\highLight[aiFillBg]{#1}}
+
+% Celdas SÍ/NO para las preguntas de la Parte 1. La opción elegida recibe
+% una casilla marcada, un fondo de color y texto en negrita (para que se
+% distinga también al imprimir en blanco y negro).
+%   \aiYesCell{<true|false>}{<texto>}  resalta cuando el valor es true
+%   \aiNoCell{<true|false>}{<texto>}   resalta cuando el valor es false
+\newcommand{\aiYesCell}[2]{%
+  \ifthenelse{\equal{#1}{true}}%
+    {\cellcolor{aiSelectedBg}$\boxtimes$~\textbf{#2}}%
+    {$\square$~#2}}
+\newcommand{\aiNoCell}[2]{%
+  \ifthenelse{\equal{#1}{true}}%
+    {$\square$~#2}%
+    {\cellcolor{aiSelectedBg}$\boxtimes$~\textbf{#2}}}
+
+% Texto de ayuda / explicaciones ("las explicaciones"). Solo se muestra
+% cuando \aiShowExplanations es true; ponlo a false en tfg_vars.tex para
+% obtener la versión final lista para entregar, sin el texto de ayuda.
+\newcommand{\aihint}[1]{\ifthenelse{\equal{\aiShowExplanations}{true}}{{\itshape\color{aiHint}#1}}{}}
+
+% Caja con marco a ancho completo para escribir tu contenido (Partes 2 y 3).
+% Argumento opcional = alto de la caja (por defecto 2cm); #2 = contenido.
+\newcommand{\aibox}[2][2cm]{%
+  \par\smallskip
+  \setlength{\fboxsep}{6pt}%
+  \noindent\fbox{%
+    \begin{minipage}[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}%
+      #2%
+    \end{minipage}}%
+  \par\smallskip
+}
+
+\endinput

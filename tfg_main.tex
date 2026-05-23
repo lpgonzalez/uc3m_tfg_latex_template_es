@@ -1,193 +1,119 @@
+% !TEX program = lualatex
+% !BIB program = biber
+% =====================================================================
+%  TRABAJO DE FIN DE GRADO (TFG) DE LA UC3M - DOCUMENTO PRINCIPAL
+%  ---------------------------------------------------------------------
+%  Compila con LuaLaTeX + Biber (consulta README.md para las instrucciones).
+%  - Edita tus datos personales en      tfg_vars.tex
+%  - Toda la configuración está en       tfg_uc3m.sty
+%  - Escribe tu contenido en             chapters/  y  others/
+%  Créditos y agradecimientos: ver la cabecera de tfg_uc3m.sty y el README.
+% =====================================================================
+
+% --- Salida PDF/A (para el depósito en e-Archivo) -------------------
+% Cambia false por true para generar un PDF/A-2b. Para la versión final, oculta
+% el capítulo de demostración con \showDemoChapter=false (es contenido de
+% ejemplo) y valida el PDF con veraPDF. DEBE estar al principio del todo:
+% \DocumentMetadata tiene que ser el primer comando, incluso antes de
+% \documentclass; por eso este interruptor vive aquí, no en tfg_vars.tex.
+\def\pdfaOutput{false}
+\def\tfgpdfayes{true}%
+\ifx\pdfaOutput\tfgpdfayes
+  \DocumentMetadata{pdfstandard=A-2b,pdfversion=1.7}% PDF/A-2b (PDF 1.7)
+\else
+  \pdfvariable minorversion=7 % versión normal: PDF 1.7 moderno (LuaTeX usa 1.5)
+\fi
+
+% Tus datos y ajustes.
+\input{tfg_vars.tex}
+% Metadatos de la plantilla (versión y procedencia); los mantiene quien
+% actualiza la plantilla, no hace falta tocarlo para tu TFG.
+\input{tfg_template_info.tex}
+
 \documentclass[twoside,12pt]{book}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\graphicspath{{/images}}
-%\usepackage[export]{adjustbox}
-\usepackage[table,xcdraw]{xcolor} % Más atrás da incompatibilidades con otros paquetes
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Estilo TFG UC3M
+% Estilo TFG UC3M: paquetes, maquetación, tipografía y metadatos del PDF.
+% Mantén esto como primer paquete; carga todo lo demás.
 \usepackage{tfg_uc3m}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Otros paquetes que quieras usar
-\usepackage{listings}
-\usepackage{svg} % Para insertar gráficos vectoriales SVG
-\usepackage{lipsum} % Para mostrar "Lorem ipsum"
+% Bibliografía: estilo elegido por \bibStyle en tfg_vars.tex (apa / ieee).
+\custombib{\bibStyle}
+\addbibresource{bibliography/bibliography.bib}
 
-% Para poder utilizar otras fuentes (requiere un compilador como LuaLaTeX)
-\usepackage{fontspec}
-\setmainfont{Arial}
-%\setmainfont{Times New Roman}
-
-% Para trabajar fácilmente con emojis (requiere un compilador como LuaLaTeX)
-\usepackage{emoji}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{biblatex}
-
-\custombib{\bibtype}
-	
-\addbibresource{bibliography/bibliography.bib} %% ficheros con la bibliografía
-
-
-\definecolor{mygreen}{rgb}{0,0.6,0}
-\definecolor{mygray}{rgb}{0.47,0.47,0.33}
-\definecolor{myorange}{rgb}{0.8,0.4,0}
-\definecolor{mywhite}{rgb}{0.98,0.98,0.98}
-\definecolor{myblue}{rgb}{0.01,0.61,0.98}
-
-\lstset{ %
-  backgroundcolor=\color{mywhite},   
-  basicstyle=\footnotesize,       
-  breakatwhitespace=false,         
-  breaklines=true,                 
-  captionpos=b,                   
-  commentstyle=\color{mygray},    
-  deletekeywords={...},           
-  escapeinside={\%*}{*)},          
-  extendedchars=true,              
-  frame=shadowbox,                    
-  keepspaces=true,                 
-  keywordstyle=\color{myorange},       
-  language=Octave,                
-  morekeywords={*,...},            
-  numbers=left,                    
-  numbersep=5pt,                   
-  numberstyle=\tiny\color{mygray}, 
-  rulecolor=\color{black},         
-  rulesepcolor=\color{myblue},
-  showspaces=false,                
-  showstringspaces=false,          
-  showtabs=false,                  
-  stepnumber=2,                    
-  stringstyle=\color{myorange},    
-  tabsize=2,                       
-  title=\lstname                   
-}    
-
-\usepackage{tikz}
-\def\checkmark{\tikz\fill[scale=0.4](0,.35)--(.25,0)--(1,.7)--(.25,.15)--cycle;}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Glosario
-\usepackage[acronym,toc]{glossaries}
-\makeglossaries
-
+% Entradas del glosario y de los acrónimos.
 \loadglsentries{others/glossary}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Empieza el documento
+
 \begin{document}
 \selectlanguage{spanish}
+
+% =====================================================================
+%  PÁGINAS PRELIMINARES
+% =====================================================================
+% Numeración romana desde el inicio, para que la portada/agradecimientos y
+% el cuerpo no compartan anclas de página (evita avisos de destino duplicado).
+\pagenumbering{Roman}
 \pagestyle{empty}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Portada
+% --- Portada ---------------------------------------------------------
 \makecover
-
 \cleardoublepage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Dedicatoria
-
+% --- Agradecimientos / dedicatoria -----------------------------------
 \input{others/acks}
 \clearpage
 
-\pagenumbering{Roman} % La numeración debe ser romana hasta el primer capítulo
-\pagestyle{plain}  % Debe ir junto a la numeración para empezar a contar las páginas
+\pagestyle{plain}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Resumen en español
+% --- Resumen (español) y Abstract (inglés) ---------------------------
+% La UC3M suele exigir ambos resúmenes. Elimina el que no necesites.
 \input{others/resumen}
 \clearpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Abstract in English
 \input{others/abstract}
 \clearpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Índice de contenidos
+% --- Índices de contenidos, figuras y tablas -------------------------
 \tableofcontents
 \clearpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Otros índices
 \listoffigures
 \clearpage
-
 \listoftables
 \clearpage
 
-%\listequationsname
-%\cleardoublepage
+% =====================================================================
+%  CUERPO
+% =====================================================================
+\pagenumbering{arabic}              % Numeración arábiga desde el primer capítulo
+\pagestyle{tfgbody}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 
-\pagenumbering{arabic} % Iniciamos la numeración árabe en el primer capítulo
-\pagestyle{fancy}
-% Remembering the chapter title:
-\renewcommand{\chaptermark}[1]{\markboth{\headertitlefont\thechapter\quad#1}{}}
-% Remembering section number and title:
-\renewcommand{\sectionmark}[1]{\markright{\headertitlefont\thesection\quad#1}}
-% Clear all header fields
-\fancyhead{}
-\fancyhead[RE]{}{}
-\fancyhead[LE]{\leftmark}
-\fancyhead[RO]{\rightmark}
-\setlength{\headheight}{14.5pt}
-% Clear all footer fields
-\fancyfoot{}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Capítulos
-
-%% Capítulo inicial a comentar cuando se escriba el documento final
-%% Ejemplo de comandos en LaTeX
-\input{chapters/00_examples}
-\newpage
-
+% Capítulo de demostración con las principales funciones de la plantilla.
+% Se muestra solo si \showDemoChapter = true (en tfg_vars.tex); ponlo a false
+% para la versión final / PDF/A. También puedes borrar chapters/00_examples.tex.
+\ifdefstring{\showDemoChapter}{true}{\input{chapters/00_examples}}{}
 
 \input{chapters/01_introduction}
-\newpage
-
 \input{chapters/02_soa}
-\newpage
-
 \input{chapters/03_method}
-\newpage
-
 \input{chapters/04_validation}
-\newpage
-
 \input{chapters/05_resultsanddiscussion}
-\newpage
-
 \input{chapters/06_projectmanagement}
-\newpage
-
 \input{chapters/07_conclusions}
-\newpage
-
 \input{chapters/08_futurelines}
-\newpage
 
+% =====================================================================
+%  PÁGINAS FINALES
+% =====================================================================
+% --- Acrónimos y glosario --------------------------------------------
 \printglossary[type=\acronymtype,title=Acrónimos]
 \printglossary[type=main]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Bibliografía
-\printbibliography
+% --- Bibliografía ----------------------------------------------------
+\printbibliography[heading=bibintoc]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Anexos
-
+% --- Anexos / apéndices ----------------------------------------------
 \input{chapters/09_annexes}
-\cleardoublepage
 
+% --- Anexo obligatorio: declaración de uso de IAG --------------------
+\input{others/ai_declaration}
+\cleardoublepage
 
 \end{document}
