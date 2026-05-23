@@ -1,8 +1,12 @@
 # uc3m_tfg_latex_template_es
 
+[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-yellow)](LICENSE)
+[![Última versión](https://img.shields.io/github/v/release/lpgonzalez/uc3m_tfg_latex_template_es)](https://github.com/lpgonzalez/uc3m_tfg_latex_template_es/releases)
+[![Hecho con LuaLaTeX](https://img.shields.io/badge/Hecho%20con-LuaLaTeX-008080)](https://www.luatex.org/)
+
 Plantilla en LaTeX para los **Trabajos de Fin de Grado (TFG)** de la Universidad
 Carlos III de Madrid (UC3M). Versión en español. La versión en inglés está
-disponible en `uc3m_tfg_latex_template_en`.
+disponible en [uc3m_tfg_latex_template_en](https://github.com/lpgonzalez/uc3m_tfg_latex_template_en).
 
 La plantilla cumple las normas de formato de la UC3M (papel A4, márgenes de
 2,5 cm superior/inferior y 3 cm izquierdo/derecho, interlineado 1,15) y genera
@@ -182,3 +186,10 @@ rescatar, refactorizar y mejorar esta plantilla hasta su estado actual, con el
 fin de facilitarles el desarrollo de su trabajo de fin de etapa. Gracias también
 a la comunidad de LaTeX por su extenso soporte, a las herramientas y plataformas
 que hacen posible la edición colaborativa de LaTeX, y a quienes crearon LaTeX.
+
+---
+
+## Licencia
+
+Esta plantilla se distribuye bajo la licencia **MIT** (ver [LICENSE](LICENSE)):
+puedes usarla, modificarla y redistribuirla libremente, incluido tu propio TFG.
