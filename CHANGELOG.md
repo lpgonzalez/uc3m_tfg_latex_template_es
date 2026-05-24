@@ -2,7 +2,7 @@
 
 Todos los cambios destacables de esta plantilla se documentan en este fichero.
 
-El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/)
+El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y la plantilla sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [2.0.0] - 2026-05-22
