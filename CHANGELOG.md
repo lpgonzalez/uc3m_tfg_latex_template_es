@@ -5,6 +5,23 @@ Todos los cambios destacables de esta plantilla se documentan en este fichero.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y la plantilla sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.0.1] - 2026-05-25
+
+### Añadido
+- Ejemplo de acrónimos y glosario ampliado para igualarlo a la versión en Typst:
+  nuevo acrónimo «SO» (sin entrada de glosario) y término «Software libre» (sin
+  acrónimo), además de los ya existentes GUL y UC3M.
+
+### Cambiado
+- Portada: el logotipo de Creative Commons ahora es más pequeño y se coloca a la
+  izquierda del aviso de licencia, con el texto a ~10 pt para que no destaque.
+
+### Corregido
+- El rótulo de los listados de código ahora es «Código» (antes «Listing»).
+- Los índices (contenido, figuras y tablas) fluyen de forma continua, sin
+  páginas en blanco intercaladas entre ellos.
+- Enlace a Keep a Changelog corregido a la URL en español (`/es-ES/`).
+
 ## [2.0.0] - 2026-05-22
 
 Revisión mayor de la plantilla: salida lista para el depósito (PDF/A),

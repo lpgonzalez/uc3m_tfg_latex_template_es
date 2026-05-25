@@ -4,10 +4,9 @@
 
 \newglossaryentry{GULg}{
     name={Grupo de Usuarios de Linux},
-    description={El Grupo de Usuarios de Linux es una asociación de estudiantes
-                 con inquietudes en torno a los ordenadores y la informática y,
-                 en concreto, con la idea común de utilizar y promover el
-                 software libre}
+    description={Asociación de estudiantes con inquietudes en torno a los
+                 ordenadores y la informática y, en concreto, con la idea común
+                 de utilizar y promover el software libre}
 }
 
 \newglossaryentry{UC3Mg}{
@@ -15,9 +14,17 @@
     description={Universidad pública española situada en la Comunidad de Madrid}
 }
 
+\newglossaryentry{swlibre}{
+    name={Software libre},
+    description={Software que respeta la libertad de las personas usuarias para
+                 ejecutarlo, copiarlo, estudiarlo, modificarlo y redistribuirlo}
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Entradas de acrónimos (recomendación: añadir "a" tras la etiqueta).
+%%  Un acrónimo puede tener su entrada de glosario (GUL, UC3M) mediante see=;
+%%  o no tenerla (SO), para ilustrar ambos casos.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newglossaryentry{GULa}{
@@ -27,6 +34,11 @@
     see=[Glosario:]{GULg}
 }
 
+\newglossaryentry{SOa}{
+    type = \acronymtype,
+    name = {SO},
+    description = {Sistema Operativo}
+}
 
 \newglossaryentry{UC3Ma}{
     type = \acronymtype,

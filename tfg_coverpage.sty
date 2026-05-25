@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tfg_coverpage}[2026/05/22 v2.0.0 Portada TFG UC3M]
+\ProvidesPackage{tfg_coverpage}[2026/05/25 v2.0.1 Portada TFG UC3M]
 
 % =====================================================================
 %  PORTADA
@@ -21,13 +21,21 @@
 % ---------------------------------------------------------------------
 \newcommand{\license}[1]{%
   \ifthenelse{\equal{#1}{cc}}{%
-    % Creative Commons (opción recomendada).
-    \includesvg[width=4.2cm]{images/coverpage/creativecommons_by-nc-nd.eu.svg}\\
-    Esta obra se encuentra sujeta a la licencia Creative Commons
-    \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}.%
+    % Creative Commons (opción recomendada): logo pequeño a la IZQUIERDA del
+    % texto y texto discreto (~10 pt) para que no destaque.
+    \noindent
+    \begin{minipage}[c]{2.9cm}%
+      \includesvg[height=0.95cm]{images/coverpage/creativecommons_by-nc-nd.eu.svg}%
+    \end{minipage}%
+    \hspace{0.3cm}%
+    \begin{minipage}[c]{\dimexpr\linewidth-3.3cm\relax}%
+      {\fontsize{10}{12}\selectfont\raggedright
+       Esta obra se encuentra sujeta a la licencia Creative Commons\\
+       \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}.\par}%
+    \end{minipage}%
   }{}%
   \ifthenelse{\equal{#1}{reserved}}{%
-    Todos los derechos reservados.%
+    {\fontsize{10}{12}\selectfont Todos los derechos reservados.\par}%
   }{}%
 }
 

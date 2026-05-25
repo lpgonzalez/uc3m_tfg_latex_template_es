@@ -72,11 +72,17 @@
 \clearpage
 
 % --- Índices de contenidos, figuras y tablas -------------------------
+% Encadenados SIN páginas en blanco entre ellos: dentro del grupo, el
+% \cleardoublepage que insertan \tableofcontents/\listof... (clase book,
+% openright) se degrada a \clearpage, de modo que cada índice empieza justo
+% tras el anterior en vez de forzar página impar.
+\begingroup
+\makeatletter\@openrightfalse\makeatother
+\let\cleardoublepage\clearpage
 \tableofcontents
-\clearpage
 \listoffigures
-\clearpage
 \listoftables
+\endgroup
 \clearpage
 
 % =====================================================================
